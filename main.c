@@ -164,13 +164,13 @@ ast_node gen_node(node_type type) {
             node = new_ast_node(type, adverbs[rand() % NUM_ADVERBS], 0);
             break;
         case Verb:
-            node = new_ast_node(type, verbs[rand() % NUM_VERBS], 0);  // TODO
+            node = new_ast_node(type, verbs[rand() % NUM_VERBS], 0);
             break;
         case Adj:
-            node = new_ast_node(type, adjectives[rand() % NUM_ADJECTIVES], 0);  // TODO
+            node = new_ast_node(type, adjectives[rand() % NUM_ADJECTIVES], 0);
             break;
         case The:
-            node = new_ast_node(type, "the", 0);  // TODO
+            node = new_ast_node(type, "the", 0);
             break;
         default:
             break;
