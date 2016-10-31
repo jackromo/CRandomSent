@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 
 typedef enum {
@@ -126,6 +127,18 @@ void gen_node_children(ast_node *node) {
 }
 
 
+// All possible terminal node values.
+
+char * nouns[] = {"cat", "dog", "businessman", "eagle"};
+#define NUM_NOUNS 4
+char * adverbs[] = {"quick", "small", "angry", "bald", "strong", "mean"};
+#define NUM_ADVERBS 6
+char * verbs[] = {"attacked", "fought", "ate", "annoyed"};
+#define NUM_VERBS 4
+char * adjectives[] = {"strongly", "easily", "angrily"};
+#define NUM_ADJECTIVES 3
+
+
 /*
  * gen_node: Generate an AST node of a certain type, along with its children.
  */
@@ -142,19 +155,19 @@ ast_node gen_node(node_type type) {
             node = new_ast_node(type, NULL, 4);
             break;
         case Noun:
-            node = new_ast_node(type, "thing", 0);  // TODO
+            node = new_ast_node(type, nouns[rand() % NUM_NOUNS], 0);
             break;
         case AdvSet:
-            node = new_ast_node(type, NULL, 1);     // TODO
+            node = new_ast_node(type, NULL, rand() % 4);
             break;
         case Adv:
-            node = new_ast_node(type, "thingy", 0);  // TODO
+            node = new_ast_node(type, adverbs[rand() % NUM_ADVERBS], 0);
             break;
         case Verb:
-            node = new_ast_node(type, "thinged", 0);  // TODO
+            node = new_ast_node(type, verbs[rand() % NUM_VERBS], 0);  // TODO
             break;
         case Adj:
-            node = new_ast_node(type, "thingily", 0);  // TODO
+            node = new_ast_node(type, adjectives[rand() % NUM_ADJECTIVES], 0);  // TODO
             break;
         case The:
             node = new_ast_node(type, "the", 0);  // TODO
@@ -169,6 +182,7 @@ ast_node gen_node(node_type type) {
 
 
 int main(int argc, char **argv) {
+    srand(time(NULL));  // randomize the seed
     ast_node sentence = gen_node(Sent);
     print_ast_node(sentence);
     printf("\n");
