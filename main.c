@@ -60,6 +60,7 @@ ast_node new_ast_node(node_type type, char *val, int num_children) {
         case Adv:
         case Verb:
         case Noun:
+        case The:
         case Adj:
             new_node.printable = true;
             break;
@@ -117,6 +118,8 @@ void gen_node_children(ast_node *node) {
             break;
         case Adj:
             break;
+        case The:
+            break;
         default:
             break;
     }
@@ -153,6 +156,9 @@ ast_node gen_node(node_type type) {
         case Adj:
             node = new_ast_node(type, "thingily", 0);  // TODO
             break;
+        case The:
+            node = new_ast_node(type, "the", 0);  // TODO
+            break;
         default:
             break;
     }
@@ -165,6 +171,7 @@ ast_node gen_node(node_type type) {
 int main(int argc, char **argv) {
     ast_node sentence = gen_node(Sent);
     print_ast_node(sentence);
+    printf("\n");
     return 0;
 }
 
