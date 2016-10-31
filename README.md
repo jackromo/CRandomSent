@@ -12,15 +12,17 @@ Sentences use the following semantics:
 
 Sentence ::= NounPhrase TVerbPhrase ;
 
-NounPhrase ::= "The" Adverb\* Noun ;
+NounPhrase ::= The Adverb\* Noun ;
 
-Noun ::= "eagle" | "businessman" | "cat" | "dog" | "duck" ;
+The ::= "the" ;
 
-Adverb ::= "lazy" | "stray" | "mean" | "big" | "bald" ;
+Noun ::= "eagle" | "businessman" | "cat" | "dog" ;
 
-TVerbPhrase ::= Verb "the" Nounphrase Adj ;
+Adverb ::= "quick" | "small" | "angry" | "strong" | "bald" | "mean" ;
 
-Verb ::= "fought" | "attacked" | "drank" | "ate" ;
+TVerbPhrase ::= Verb The Nounphrase Adj ;
 
-Adj ::= "majestically" | "quickly" | "effortlessly" | "viciously" ;
+Verb ::= "fought" | "attacked" | "annoyed" | "ate" ;
+
+Adj ::= "strongly" | "easily" | "angrily" ;
 
