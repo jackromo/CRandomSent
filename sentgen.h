@@ -13,18 +13,15 @@
 #include <math.h>
 
 
-typedef enum {
-    Sent = 0,
-    The,
-    NounP,
-    VerbP,
-    Noun,
-    AdvSet,
-    Adv,
-    Verb,
-    Adj,
-    _NUM_TYPES  // special val for array size; do not use!
-} node_type;
+/*
+ * node_type: Type of token a node represents.
+ * Each type has a unique integer value,
+ * which can be overlayed with a homebrew enum.
+ *
+ * NB: Can only support number of types equal to
+ * max range of int.
+ */
+typedef int node_type;
 
 
 /*
@@ -42,7 +39,7 @@ typedef struct {
 } ast_type_data;
 
 
-typedef ast_type_data cf_grammar[_NUM_TYPES];
+typedef ast_type_data cf_grammar[];
 
 
 struct str_ast_node;

@@ -19,5 +19,5 @@ $(BUILDDIR)/%.o: ./%.c
 
 
 clean:
-	rm $(BUILDDIR)/*.o $(BUILDDIR)/$(P)*
+	rm $(BUILDDIR)/*.o $(BUILDDIR)/$(P)
 

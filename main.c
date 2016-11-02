@@ -11,6 +11,19 @@
 #include "sentgen.h"
 
 
+typedef enum {
+    Sent = 0,
+    The,
+    NounP,
+    VerbP,
+    Noun,
+    AdvSet,
+    Adv,
+    Verb,
+    Adj
+} ex_node_type;
+
+
 // An example grammar.
 
 cf_grammar example_gram = {
